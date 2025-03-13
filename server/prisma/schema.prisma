@@ -25,6 +25,16 @@ enum Highlight {
   CloseToTransit
   GreatView
   QuietNeighborhood
+   OceanView
+  GymAccess
+  CityView
+  SmartHomeFeatures
+  Beachfront
+  PrivatePool
+  BeachAccess
+  SwimmingPool
+  KidFriendly
+  FitnessCenter
 }
 
 enum Amenity {

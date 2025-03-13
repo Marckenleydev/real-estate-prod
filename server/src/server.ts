@@ -4,8 +4,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import bodyParser from "body-parser";
-import fetch from "node-fetch"
-import { authMiddleware } from "../middleware/authMiddleware";
+import { authMiddleware } from "./middleware/authMiddleware";
 
 
 // Configuration
@@ -18,17 +17,29 @@ app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+
+// Routes
 import tenantRoutes from "./routes/tenantRoutes"
 import managerRoutes from "./routes/managerRoutes"
+import propertyRoutes from "./routes/propertyRoutes"
+import leaseRoutes from "./routes/leaseRoutes"
+import applicationRoutes from "./routes/applicationRoutes"
+
+
+
 // Routes
 app.get("/",  (req, res) => {
-  res.send("Hello World!");
+  res.send("Helle welcome to RENTiful");
 });
-
+app.use("/api/applications", applicationRoutes);
+app.use("/api/properties", propertyRoutes)
+app.use("/api/leases", leaseRoutes);
 app.use("/api/tenants", authMiddleware(["tenant"]), tenantRoutes)
 app.use("/api/managers", authMiddleware(["manager"]), managerRoutes)
 
 const PORT = process.env.PORT  || 3003;
 app.listen(PORT, () => {
+
   console.log(`Server is running on port ${PORT}`);
+
 });
