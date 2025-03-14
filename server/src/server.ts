@@ -31,11 +31,11 @@ import applicationRoutes from "./routes/applicationRoutes"
 app.get("/",  (req, res) => {
   res.send("Hello welcome to RENTiful");
 });
-app.use("/api/applications", applicationRoutes);
-app.use("/api/properties", propertyRoutes)
-app.use("/api/leases", leaseRoutes);
-app.use("/api/tenants", authMiddleware(["tenant"]), tenantRoutes)
-app.use("/api/managers", authMiddleware(["manager"]), managerRoutes)
+app.use("/applications", applicationRoutes);
+app.use("/properties", propertyRoutes)
+app.use("/leases", leaseRoutes);
+app.use("/tenants", authMiddleware(["tenant"]), tenantRoutes)
+app.use("/managers", authMiddleware(["manager"]), managerRoutes)
 
 const PORT = Number(process.env.PORT)  || 3003;
 app.listen(PORT,"0.0.0.0", () => {
