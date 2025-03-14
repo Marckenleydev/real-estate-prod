@@ -29,7 +29,7 @@ import applicationRoutes from "./routes/applicationRoutes"
 
 // Routes
 app.get("/",  (req, res) => {
-  res.send("Helle welcome to RENTiful");
+  res.send("Hello welcome to RENTiful");
 });
 app.use("/api/applications", applicationRoutes);
 app.use("/api/properties", propertyRoutes)
