@@ -152,6 +152,8 @@ export const getProperty = async (
       .json({ message: `Error retrieving property: ${err.message}` });
   }
 };
+
+
 export const getProperties = async (
   req: Request,
   res: Response
