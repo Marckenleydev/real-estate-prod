@@ -10,6 +10,7 @@ import { cleanParams } from "@/lib/utils";
 import { setFilters } from "@/state";
 import Map from "./Map";
 import Listings from "./Listings";
+import { Suspense } from 'react'
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -46,6 +47,8 @@ const SearchPage = () => {
   }, [searchParams, dispatch]); // Add searchParams as a dependency
 
   return (
+    <Suspense>
+    
     <div
       className="w-full mx-auto px-5 flex flex-col"
       style={{
@@ -69,6 +72,7 @@ const SearchPage = () => {
         </div>
       </div>
     </div>
+    </Suspense>
   );
 };
 
