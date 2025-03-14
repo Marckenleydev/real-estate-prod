@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
+module.exports = {
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
+}
 const nextConfig: NextConfig = {
+  
   images: {
     remotePatterns: [
       {
